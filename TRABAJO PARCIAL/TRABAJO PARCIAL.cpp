@@ -778,6 +778,95 @@ void dibujarJ2(int x, int y) {
     gotoXY(x, y + 5);  cout << " \\__/    /___";
 }
 
+void dibujarP(int x, int y) {
+    gotoXY(x, y + 1);  cout << "   ________   ";
+    gotoXY(x, y + 2);  cout << "   |       |  ";
+    gotoXY(x, y + 3);  cout << "   |_______|  ";
+    gotoXY(x, y + 4);  cout << "   |          ";
+    gotoXY(x, y + 5);  cout << "   |          ";
+}
+
+void dibujarnumero0Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "  |    |  ";
+    gotoXY(x, y + 3); cout << "  |    |  ";
+    gotoXY(x, y + 4); cout << "  |    |  ";
+    gotoXY(x, y + 5); cout << "  |____|  ";
+}
+
+void dibujarnumero1Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "          ";
+    gotoXY(x, y + 2); cout << "    |     ";
+    gotoXY(x, y + 3); cout << "    |     ";
+    gotoXY(x, y + 4); cout << "    |     ";
+    gotoXY(x, y + 5); cout << "    |     ";
+}
+
+void dibujarnumero2Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "       |  ";
+    gotoXY(x, y + 3); cout << "   ____|  ";
+    gotoXY(x, y + 4); cout << "  |       ";
+    gotoXY(x, y + 5); cout << "  |____   ";
+}
+
+void dibujarnumero3Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "       |  ";
+    gotoXY(x, y + 3); cout << "   ____|  ";
+    gotoXY(x, y + 4); cout << "       |  ";
+    gotoXY(x, y + 5); cout << "   ____|  ";
+}
+
+void dibujarnumero4Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "          ";
+    gotoXY(x, y + 2); cout << "  |    |  ";
+    gotoXY(x, y + 3); cout << "  |____|  ";
+    gotoXY(x, y + 4); cout << "       |  ";
+    gotoXY(x, y + 5); cout << "       |  ";
+}
+
+void dibujarnumero5Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "  |       ";
+    gotoXY(x, y + 3); cout << "  |____   ";
+    gotoXY(x, y + 4); cout << "       |  ";
+    gotoXY(x, y + 5); cout << "   ____|  ";
+}
+
+void dibujarnumero6Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "  |       ";
+    gotoXY(x, y + 3); cout << "  |____   ";
+    gotoXY(x, y + 4); cout << "  |    |  ";
+    gotoXY(x, y + 5); cout << "  |____|  ";
+}
+
+void dibujarnumero7Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "       |  ";
+    gotoXY(x, y + 3); cout << "       |  ";
+    gotoXY(x, y + 4); cout << "       |  ";
+    gotoXY(x, y + 5); cout << "       |  ";
+}
+
+void dibujarnumero8Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "  |    |  ";
+    gotoXY(x, y + 3); cout << "  |____|  ";
+    gotoXY(x, y + 4); cout << "  |    |  ";
+    gotoXY(x, y + 5); cout << "  |____|  ";
+}
+
+void dibujarnumero9Pequenio(int x, int y) {
+    gotoXY(x, y + 1); cout << "   ____   ";
+    gotoXY(x, y + 2); cout << "  |    |  ";
+    gotoXY(x, y + 3); cout << "  |____|  ";
+    gotoXY(x, y + 4); cout << "       |  ";
+    gotoXY(x, y + 5); cout << "       |  ";
+}
+
+
 //Juntamos las letras
 void dibujarVictoria(int x, int y) {
     dibujarVVictoria(x + 0, y + 3);
@@ -1073,7 +1162,7 @@ int pedirCartas() {
     mostrarCarta(numeroRandom);
     mostrarSimbolo(numeroSimboloRandom);
     if (numeroRandom == 1) {
-        gotoXY(0, 20);
+        gotoXY(0, 15);
         cout << "Deseas que valga 1 o 11?: " << endl;
         cin >> valorAS;
         puntoActual = verificarAS(valorAS);
@@ -1086,6 +1175,192 @@ int pedirCartas() {
     return puntoActual;
 }
 
+int verificarCentenas(int numero) {
+    int cantidadDeCentenas = numero / 100;
+    if (cantidadDeCentenas != 0) {
+        return cantidadDeCentenas;
+    }
+    return 0;
+}
+
+int verificarDecenas(int numero) {
+    int cantidadDeDecenas = (numero / 10) % 10;
+    if (cantidadDeDecenas != 0) {
+        return cantidadDeDecenas;
+    }
+    return 0;
+}
+
+int verificarUnidades(int numero) {
+    int cantidadDeUnidades = numero % 10;
+    return cantidadDeUnidades;
+}
+
+void mostrarCentenas(int numero) {
+    if (numero == 0) {
+        dibujarnumero0(2, 30);
+    }
+    else if (numero == 1) {
+        dibujarnumero1(2, 30);
+    }
+    else if (numero == 2) {
+        dibujarnumero2(2, 30);
+    }
+    else if (numero == 3) {
+        dibujarnumero3(2, 30);
+    }
+    else if (numero == 4) {
+        dibujarnumero4(2, 30);
+    }
+    else if (numero == 5) {
+        dibujarnumero5(2, 30);
+    }
+    else if (numero == 6) {
+        dibujarnumero6(2, 30);
+    }
+    else if (numero == 7) {
+        dibujarnumero7(2, 30);
+    }
+    else if (numero == 8) {
+        dibujarnumero8(2, 30);
+    }
+    else if (numero == 9) {
+        dibujarnumero9(2, 30);
+    }
+}
+
+void mostrarDecenas(int numero) {
+    if (numero == 0) {
+        dibujarnumero0(25, 30);
+    }
+    else if (numero == 1) {
+        dibujarnumero1(25, 30);
+    }
+    else if (numero == 2) {
+        dibujarnumero2(25, 30);
+    }
+    else if (numero == 3) {
+        dibujarnumero3(25, 30);
+    }
+    else if (numero == 4) {
+        dibujarnumero4(25, 30);
+    }
+    else if (numero == 5) {
+        dibujarnumero5(25, 30);
+    }
+    else if (numero == 6) {
+        dibujarnumero6(25, 30);
+    }
+    else if (numero == 7) {
+        dibujarnumero7(25, 30);
+    }
+    else if (numero == 8) {
+        dibujarnumero8(25, 30);
+    }
+    else if (numero == 9) {
+        dibujarnumero9(25, 30);
+    }
+}
+
+void mostrarUnidades(int numero) {
+    if (numero == 0) {
+        dibujarnumero0(48, 30);
+    }
+    else if (numero == 1) {
+        dibujarnumero1(48, 30);
+    }
+    else if (numero == 2) {
+        dibujarnumero2(48, 30);
+    }
+    else if (numero == 3) {
+        dibujarnumero3(48, 30);
+    }
+    else if (numero == 4) {
+        dibujarnumero4(48, 30);
+    }
+    else if (numero == 5) {
+        dibujarnumero5(48, 30);
+    }
+    else if (numero == 6) {
+        dibujarnumero6(48, 30);
+    }
+    else if (numero == 7) {
+        dibujarnumero7(48, 30);
+    }
+    else if (numero == 8) {
+        dibujarnumero8(48, 30);
+    }
+    else if (numero == 9) {
+        dibujarnumero9(48, 30);
+    }
+}
+
+void mostrarPuntosUnidades(int numero) {
+    if (numero == 0) {
+        dibujarnumero0Pequenio(64, 12);
+    }
+    else if (numero == 1) {
+        dibujarnumero1Pequenio(64, 12);
+    }
+    else if (numero == 2) {
+        dibujarnumero2Pequenio(64, 12);
+    }
+    else if (numero == 3) {
+        dibujarnumero3Pequenio(64, 12);
+    }
+    else if (numero == 4) {
+        dibujarnumero4Pequenio(64, 12);
+    }
+    else if (numero == 5) {
+        dibujarnumero5Pequenio(64, 12);
+    }
+    else if (numero == 6) {
+        dibujarnumero6Pequenio(64, 12);
+    }
+    else if (numero == 7) {
+        dibujarnumero7Pequenio(64, 12);
+    }
+    else if (numero == 8) {
+        dibujarnumero8Pequenio(64, 12);
+    }
+    else if (numero == 9) {
+        dibujarnumero9Pequenio(64, 12);
+    }
+}
+
+void mostrarPuntosDecenas(int numero) {
+    if (numero == 0) {
+        dibujarnumero0Pequenio(54, 12);
+    }
+    else if (numero == 1) {
+        dibujarnumero1Pequenio(54, 12);
+    }
+    else if (numero == 2) {
+        dibujarnumero2Pequenio(54, 12);
+    }
+    else if (numero == 3) {
+        dibujarnumero3Pequenio(54, 12);
+    }
+    else if (numero == 4) {
+        dibujarnumero4Pequenio(54, 12);
+    }
+    else if (numero == 5) {
+        dibujarnumero5Pequenio(54, 12);
+    }
+    else if (numero == 6) {
+        dibujarnumero6Pequenio(54, 12);
+    }
+    else if (numero == 7) {
+        dibujarnumero7Pequenio(54, 12);
+    }
+    else if (numero == 8) {
+        dibujarnumero8Pequenio(54, 12);
+    }
+    else if (numero == 9) {
+        dibujarnumero9Pequenio(54, 12);
+    }
+}
+
 int main() {
     int acumuladorJugador1 = 0;
     int puntoActualJugador1 = 0;
@@ -1095,6 +1370,11 @@ int main() {
     int acumuladorPermanenteJugador2 = 0;
     int contadorDePartidasGanadasJugador1 = 0;
     int contadorDePartidasGanadasJugador2 = 0;
+    int cantidadDeUnidades;
+    int cantidadDeDecenas;
+    int cantidadDeCentenas;
+    int cantidadDeDecenasPuntos;
+    int cantidadDeUnidadesPuntos;
     char tecla;
     bool turnoJugador1 = true;
     bool turnoJugador2 = false;
@@ -1133,8 +1413,20 @@ int main() {
                     dibujarJ2(130, 22);
                     DibujarRectanguloHueco(0, 21, 40, 24);
                     DibujarLinea(0, 28, 39);
-                    DibujarLineaV(39, 21, 12);
+                    dibujarP(20, 22);
+                    dibujarJ1(35, 22);
                     borrarTexto(0, 10);
+                    cantidadDeCentenas = verificarCentenas(acumuladorPermanenteJugador1);
+                    cantidadDeDecenas = verificarDecenas(acumuladorPermanenteJugador1);
+                    cantidadDeUnidades = verificarUnidades(acumuladorPermanenteJugador1);
+                    mostrarCentenas(cantidadDeCentenas);
+                    mostrarDecenas(cantidadDeDecenas);
+                    mostrarUnidades(cantidadDeUnidades);
+                    DibujarRectanguloHueco(50, 10, 15, 10);
+                    cantidadDeDecenasPuntos = verificarDecenas(acumuladorJugador1);
+                    cantidadDeUnidadesPuntos = verificarUnidades(acumuladorJugador1);
+                    mostrarPuntosDecenas(cantidadDeDecenasPuntos);
+                    mostrarPuntosUnidades(cantidadDeUnidadesPuntos);
                     gotoXY(0, 0);
                     cout << "--------------------------- Turno del jugador 1 --------------------------";
                     cout << "\n\n----> Presiona S(SI) para seguir pidiendo cartas";
@@ -1142,8 +1434,6 @@ int main() {
                     gotoXY(0, 7);
                     cout << "Acumulador permanente Jugador 1: " << acumuladorPermanenteJugador1 << endl;
                     gotoXY(0, 11);
-                    cout << "Acumulador Jugador 1: " << acumuladorJugador1 << endl;
-                    gotoXY(0, 15);
                     cout << "Seguir Pidiendo Cartas?: ";
                     cin >> tecla;
                     tecla = toupper(tecla);
@@ -1170,7 +1460,7 @@ int main() {
                         turnoJugador1 = false;
                         seguirPidiendoJugador1 = false;
                         ganasteJugador1 = false;
-                        gotoXY(0, 23);
+                        gotoXY(0, 17);
                         cout << "Perdiste la ronda...";
                         _getch();
                         Console::Clear();
@@ -1197,8 +1487,20 @@ int main() {
                     dibujarJ2(130, 22);
                     DibujarRectanguloHueco(0, 21, 40, 24);
                     DibujarLinea(0, 28, 39);
-                    DibujarLineaV(39, 21, 12);
+                    dibujarP(20, 22);
+                    dibujarJ2(35, 22);
                     borrarTexto(0, 10);
+                    cantidadDeCentenas = verificarCentenas(acumuladorPermanenteJugador2);
+                    cantidadDeDecenas = verificarDecenas(acumuladorPermanenteJugador2);
+                    cantidadDeUnidades = verificarUnidades(acumuladorPermanenteJugador2);
+                    mostrarCentenas(cantidadDeCentenas);
+                    mostrarDecenas(cantidadDeDecenas);
+                    mostrarUnidades(cantidadDeUnidades);
+                    DibujarRectanguloHueco(50, 10, 15, 10);
+                    cantidadDeDecenasPuntos = verificarDecenas(acumuladorJugador2);
+                    cantidadDeUnidadesPuntos = verificarUnidades(acumuladorJugador2);
+                    mostrarPuntosDecenas(cantidadDeDecenasPuntos);
+                    mostrarPuntosUnidades(cantidadDeUnidadesPuntos);
                     gotoXY(0, 0);
                     cout << "------------------------- Turno del jugador 2 -------------------------";
                     cout << "\n\n----> Presiona S(SI) para seguir pidiendo cartas";
@@ -1206,8 +1508,6 @@ int main() {
                     gotoXY(0, 7);
                     cout << "Acumulador permanente Jugador 2: " << acumuladorPermanenteJugador2 << endl;
                     gotoXY(0, 11);
-                    cout << "Acumulador Jugador 2: " << acumuladorJugador2 << endl;
-                    gotoXY(0, 15);
                     cout << "Seguir Pidiendo Cartas?: ";
                     cin >> tecla;
                     tecla = toupper(tecla);
@@ -1240,7 +1540,7 @@ int main() {
                         turnoJugador2 = false;
                         seguirPidiendoJugador2 = false;
                         ganasteJugador2 = false;
-                        gotoXY(0, 23);
+                        gotoXY(0, 17);
                         cout << "Perdiste la ronda...";
                         _getch();
                         Console::Clear();
